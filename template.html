@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pl">
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="Szymon Burnejko">
+		<meta name="ROBOTS" content="INDEX, FOLLOW, NOARCHIVE">
+		<link href="img/favicon.ico" rel="icon" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>Projekty - Szymon B.</title>
+	</head>
+
+	<body>
+		<div id="content">
+			
+			<div id="header" >Moje Projekty</div>
+
+			<table>
+				<tr><th>Nazwa projektu*</th><th>Opis</th></tr>			
+				{{$f->lista()}}
+			</table>
+
+			<div class="description">* Wybierz projekt klikając w jego nazwę.</div>
+
+			<div class="pagination">
+				{{$f->paginacja()}}
+			</div>
+
+			<div style="clear: both;"></div>
+			
+			<div class="bottom">
+				<div class="minions"></div>
+				<div class="addons">
+					<p class="quote">Jak się czuję,<br />kiedy mój kod działa<br />&larr; ;-)</p>
+					<p class="projects">Liczba projektów: {{$f->getIle()}}</p>
+				</div>
+				
+				<div style="clear: both;"></div>
+
+				<p class="footer">Skrypt indeksujący. - Szymon Burnejko</p>
+			</div>
+
+		</div>
+	</body>
+</html>

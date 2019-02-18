@@ -1,0 +1,188 @@
+body 
+{
+	font: normal 20px Calibri, sans-serif; 
+	margin: 15px 50px 30px; 
+	background-color: #000;
+	color: #f0f0f0;
+}
+
+#content 
+{
+	width: 900px; 
+	margin: 35px auto 25px;	
+	padding: 20px 20px 5px; 
+	background-color: #7f7f7f;
+	border-radius: 10px;
+	box-shadow:0 0 6px #f0f0f0;
+}
+
+#header 
+{
+	font-size: 36px; 
+	font-weight: bold; 
+	margin: 5px 0 10px;
+	text-align: center;
+	text-shadow:0 2px 0 #000, 0 3px 0 #aaa, 0 3px 4px #aaa;
+}
+
+table 
+{
+	width: 100%;
+	border-top: medium double silver; 
+	border-bottom: medium double silver; 
+	padding: 4px 5px; 
+	border-spacing: 0;
+}
+
+th 
+{
+	border-bottom: medium double silver; 
+	text-align: left; 
+	padding: 1px 25px; 
+	font-size: 22px;
+}
+
+th:not(:first-child)
+{
+	width: 50%;
+}
+
+td 
+{
+	padding: 2px 15px 2px 8px;
+}
+
+tr:hover:not(:first-child) 
+{
+	background-color: #020;
+	width: 50%;
+}
+
+td a 
+{
+	display: inline-block; 
+	width: 280px;
+}
+
+table span 
+{
+	display: inline-block;
+}
+
+table span:first-letter 
+{
+	text-transform: uppercase;
+}
+
+.empty 
+{
+	text-align: center; 
+	font-size: 34px; 
+	font-weight: bold; 
+	background-color: #7f7f7f;
+}
+
+.info:first-letter 
+{
+	text-transform: uppercase;
+}
+
+.description 
+{
+	font-size: 16px; 
+	margin-top: 5px;
+}
+
+div.pagination 
+{
+	text-align: center; 
+	padding-top: 20px;
+}
+
+div.pagination > span::before 
+{
+	content: '|'; 
+	margin: 0 10px;
+}
+
+div.pagination > span:first-child::before 
+{
+	content: ''; 
+	margin: 0;
+}
+
+div.bottom 
+{
+	margin: 15px 40px 0px 0px; 
+	width: 100%;
+}
+
+div.minions
+{
+	width: 500px; 
+	height: 270px;  
+	float: left;
+	background: #999 url(img/minion.gif) no-repeat center;  
+	border: 1px solid #000; 
+	border-radius: 10px;
+	box-shadow: 0 8px 6px -6px black;
+}
+
+div.addons
+{
+	height: 270px;
+	float: left; 
+}
+
+p.quote 
+{		
+	margin: 25px 0 0 0; 
+	width: 394px; 
+	padding-top: 5px; 
+	text-align: center; 
+	font-size: 32px; 
+	font-style: italic; 
+	
+	text-shadow: 0 2px 0 #000, 0 3px 0 #aaa, 0 3px 4px #aaa;
+}
+
+.projects 
+{
+	font-size: 18px;
+	width: 394px;
+	text-align: center;
+}
+
+.footer 
+{
+	text-align: right; 
+	font-size: 14px; 
+	font-style: italic; 
+	padding: 0;
+	margin: 0;
+}
+
+a 
+{
+	text-decoration: none; 
+	color: #bdc939;
+}
+
+a:hover 
+{
+	color: #eefc3a; 
+	text-shadow:0 0 8px #ff0;
+}
+
+a.selectActive 
+{
+	font-size: 28px; 
+	color: #eefc3a; 
+	text-shadow:0 0 8px #ff0;
+}
+
+img 
+{
+	vertical-align: baseline; 
+	border-size: 0;
+}
