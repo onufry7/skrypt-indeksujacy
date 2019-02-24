@@ -2,13 +2,11 @@
 
 class Paginate
 {
-	//private $_currentOffset;
 	private $_currentPage = 0; //Obecna strona
 	private $_items = 0; //Liczba wszystkich rekordów
-	//private $_parts;
 	private $_next = false; //Następna strona
 	private $_previous = false; //Poprzednia strona
-	private $_perPage = 2; //Liczba rekordów na strone
+	private $_perPage = 3; //Liczba rekordów na strone
 	private $_pages = 1; //Liczba stron
 	private $_from = 0; //Od jakiego rekordu
 	private $_to = 0; //Do jakiego rekordu
@@ -20,26 +18,8 @@ class Paginate
 		$this->setCurrentPage($page);
 		$this->setNextPrev();
 		$this->setFromTo();
-		
-
-
-echo '<br>----------------------------------------------<br>';
-echo 'Klasa Paginate -> constructor <br>';
-if($page != null) echo 'Page: '.$page;
-if($items != null) echo '<br>Items: '.$items;
-echo '<br>----------------------------------------------<br>';
-//echo 'currentOffset: '.$this->_currentOffset.'<br>';
-echo 'currentPage: '.$this->_currentPage.'<br>';
-echo 'items: '.$this->_items.'<br>';
-//echo 'parts: '.$this->_parts.'<br>';
-echo 'next: '.$this->_next.'<br>';
-echo 'previous: '.$this->_previous.'<br>';
-echo 'perPage: '.$this->_perPage.'<br>';
-echo 'pages: '.$this->_pages.'<br>';
-echo 'from: '.$this->_from.'<br>';
-echo 'to: '.$this->_to.'<br>';
-echo '<br>----------------------------------------------<br>';
 	}
+
 
 	//Ustawia liczbe wszystkich rekordów
 	private function setItems($elements)
@@ -62,8 +42,15 @@ echo '<br>----------------------------------------------<br>';
 		else $this->_from = $this->_currentPage*$this->_perPage;
 
 		//Nr max rekordu na bierzącej stronie
-		if($this->_from+$this->_perPage-1 > $this->_items) $this->_to = $this->_items;
+		if($this->_from+$this->_perPage-1 > $this->_items-1) $this->_to = $this->_items-1;
 		else $this->_to = $this->_from+$this->_perPage-1;
+	}
+
+
+	//Pobiera numery rekordów na stronę
+	public function getFromTo()
+	{
+		return ['from'=>$this->_from, 'to'=>$this->_to];
 	}
 	 
 	

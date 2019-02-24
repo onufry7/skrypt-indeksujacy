@@ -8,11 +8,6 @@ class Projects
 	public function __construct()
 	{
 		$this->_listProjects = $this->projectsList();
-
-		/*echo '<br><pre>';
-		print_r($this->_listProjects) ;
-		echo '<br></pre>';*/
-
 	}
 
 
@@ -25,15 +20,24 @@ class Projects
 
 
 	//Wszystkie projekty
-	public function allProjects($page)
+	public function getProjectsList()
 	{
-		$paginate = new Paginate(count($this->_listProjects), $page);
+		//$paginate = new Paginate(count($this->_listProjects), $page);
 		//echo '<br>'.$page.' - '.count($this->_listProjects).'<br>';
+		return $this->_listProjects;
+	}
+
+
+	//Wybrane projekty
+	public function getFromToProjects($from, $to)
+	{
+		for($i=$from; $i<=$to; $i++) $result[$i] = $this->_listProjects[$i];
+		return $result;
 	}
 
 
 	//Tworzy listę wszystkich projektów
-	protected function projectsList()
+	private function projectsList()
 	{
 		$marks = array("-","_"); // Znaki które zostana zamienione na spacje, w nazwie
 		$i = 0; //Liczba projektów

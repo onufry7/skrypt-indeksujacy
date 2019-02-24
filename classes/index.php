@@ -4,9 +4,9 @@ class Index
 	
 	protected $wynik = array('<tr><td colspan="4" class="empty">Brak projektów!</td></tr>'); // Informacja zwrotna
 	//protected $ile; // Wszystkie rekordy
-	protected $strona; // $_GET['page']
-	protected $stron; // Liczba wszystkich stron
-	protected $limit; // Liczba rekordów na stronie
+	//protected $strona; // $_GET['page']
+	//protected $stron; // Liczba wszystkich stron
+	//protected $limit; // Liczba rekordów na stronie
 	protected $od; // od jakiego rekordu
 	protected $do; // do jakiego rekordu
 	
