@@ -31,14 +31,20 @@
 			$pagin = new Paginate(count($projectsList), $page);
 			list('from'=>$from, 'to'=>$to) = $pagin->getFromTo();
 			$fromTo = $projects->getFromToProjects($from, $to);
+			$count = $pagin->getCountProjects();
 
-			echo '<br><pre>';
-			//echo '<br>'.$from.' '.$to.'<br>';
-			echo '<br> ---------------------- <br>';
-			print_r($fromTo);
-			echo '<br> ---------------------- <br>';
-			//print_r($projectsList);
-			echo '</pre><br>';
+			$view = new View($count);
+			$viewList = $view->viewIndex($fromTo, 'Pagination Panel');
+			$view->renderView($viewList);
+
+
+			// echo '<br><pre>';
+			// //echo '<br>'.$from.' '.$to.'<br>';
+			// echo '<br> ---------------------- <br>';
+			// print_r($fromTo);
+			// echo '<br> ---------------------- <br>';
+			// //print_r($projectsList);
+			// echo '</pre><br>';
 		}
 
 
@@ -53,7 +59,7 @@
 		private function error($param)
 		{
 			$err = new Errors($param);
-			echo $err;//->getMessage();
+			return $err;
 		}
 	}
 

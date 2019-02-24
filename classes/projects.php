@@ -22,8 +22,6 @@ class Projects
 	//Wszystkie projekty
 	public function getProjectsList()
 	{
-		//$paginate = new Paginate(count($this->_listProjects), $page);
-		//echo '<br>'.$page.' - '.count($this->_listProjects).'<br>';
 		return $this->_listProjects;
 	}
 
@@ -49,10 +47,10 @@ class Projects
 			else $list[$i]['info'] = rtrim(file_get_contents("$folder".'/info.txt'),"\n") ;
 			
 			//Ustawienie nazwy projektu
-			$list[$i]['name'] = str_replace($marks," ",$folder);
+			$list[$i]['name'] = substr(str_replace($marks," ",$folder), 9);
 
 			//Ustawienie linku
-			$list[$i]['link'] = $folder;
+			$list[$i]['link'] = substr($folder, 9);
 			
 			$i++;
 

@@ -21,18 +21,25 @@ class Paginate
 	}
 
 
+	public function getCountProjects()
+	{
+		return $this->_items;
+	}
+
+
+	//Pobiera numery rekordów na stronę
+	public function getFromTo()
+	{
+		return ['from'=>$this->_from, 'to'=>$this->_to];
+	}
+
+
 	//Ustawia liczbe wszystkich rekordów
 	private function setItems($elements)
 	{
 		$this->_items = $elements;
 	}
 
-
-	//Ustawia liczbe wszystkich stron
-	private function setPages()
-	{
-		$this->_pages = ceil($this->_items/$this->_perPage)-1;
-	}
 
 	//Ustawia przedział rekordów dla strony
 	private function setFromTo()
@@ -47,13 +54,13 @@ class Paginate
 	}
 
 
-	//Pobiera numery rekordów na stronę
-	public function getFromTo()
+	//Ustawia liczbe wszystkich stron
+	private function setPages()
 	{
-		return ['from'=>$this->_from, 'to'=>$this->_to];
+		$this->_pages = ceil($this->_items/$this->_perPage)-1;
 	}
-	 
-	
+
+
 	//Ustawienie aktualnej strony
 	private function setCurrentPage($page)
 	{
