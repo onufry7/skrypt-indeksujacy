@@ -2,6 +2,7 @@
 
 class Paginate
 {
+	private $_paginPanel = ''; //Panel paginacji
 	private $_currentPage = 0; //Obecna strona
 	private $_items = 0; //Liczba wszystkich rekordów
 	private $_next = false; //Następna strona
@@ -11,13 +12,20 @@ class Paginate
 	private $_from = 0; //Od jakiego rekordu
 	private $_to = 0; //Do jakiego rekordu
 
-	public function __construct($items, $page = null)
+
+	public function generatePagination($items, $page = null)
 	{
 		$this->setItems($items);
 		$this->setPages();
 		$this->setCurrentPage($page);
 		$this->setNextPrev();
 		$this->setFromTo();
+	}
+
+
+	public function getPaginPanel();
+	{
+		return $this->_paginPanel;
 	}
 
 
@@ -94,6 +102,13 @@ class Paginate
 			$this->_next = $this->_currentPage+1;
 			$this->_previous = $this->_currentPage-1;
 		}
+	}
+
+
+	//Tworzy panel z linkami
+	private function createPanel()
+	{
+		;
 	}
 
 }

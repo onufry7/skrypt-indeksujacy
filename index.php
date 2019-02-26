@@ -1,9 +1,9 @@
 <?php
 
 spl_autoload_register(function ($class) {
-	$class = strtolower($class);
-    if(file_exists('classes/'.$class.'.php'))
-    	include('classes/'.$class.'.php');
+	$file = strtolower($class);
+    if(file_exists('classes/'.$file.'.php'))
+    	include('classes/'.$file.'.php');
 	else throw new Exception('Nie udało się wczytać klasy '.$class);
 });
 
@@ -15,7 +15,5 @@ catch (Exception $e)
 {
 	echo 'Wystąpił błąd na stronie: '.$e->getMessage()."\n";
 }
-
-
 
 ?>

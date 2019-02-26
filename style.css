@@ -16,7 +16,7 @@ body
 	box-shadow:0 0 6px #f0f0f0;
 }
 
-#header 
+header 
 {
 	font-size: 36px; 
 	font-weight: bold; 
@@ -78,8 +78,7 @@ table span:first-letter
 {
 	text-align: center; 
 	font-size: 34px; 
-	font-weight: bold; 
-	background-color: #7f7f7f;
+	font-weight: bold;
 }
 
 .info:first-letter 
@@ -93,25 +92,25 @@ table span:first-letter
 	margin-top: 5px;
 }
 
-div.pagination 
+.pagination 
 {
 	text-align: center; 
 	padding-top: 20px;
 }
 
-div.pagination > span::before 
+.pagination > span::before 
 {
 	content: '|'; 
 	margin: 0 10px;
 }
 
-div.pagination > span:first-child::before 
+.pagination > span:first-child::before 
 {
 	content: ''; 
 	margin: 0;
 }
 
-div.bottom 
+aside 
 {
 	margin: 15px 40px 0px 0px; 
 	width: 100%;
@@ -153,7 +152,7 @@ p.quote
 	text-align: center;
 }
 
-.footer 
+footer 
 {
 	text-align: right; 
 	font-size: 14px; 

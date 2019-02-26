@@ -2,20 +2,12 @@
 
 class Projects
 {
-	private $_listProjects = null; //Lista projektów
+	private $_listProjectss = null; //Lista projektów
 
 
 	public function __construct()
 	{
 		$this->_listProjects = $this->projectsList();
-	}
-
-
-	//Pojedyńczy projekt
-	public function project($name)
-	{
-		echo 'Klasa Projects -> project <br>';
-		if($name != null) echo $name;
 	}
 
 
@@ -26,10 +18,22 @@ class Projects
 	}
 
 
-	//Wybrane projekty
-	public function getFromToProjects($from, $to)
+	//Zwraca liczbę projektów
+	public function countProjects()
 	{
-		for($i=$from; $i<=$to; $i++) $result[$i] = $this->_listProjects[$i];
+		$count = count($this->_listProjects);
+		return $count;
+	}
+
+
+	//Wybrane projekty
+	public function getFromToProjects($limit)
+	{
+		$result = [];
+		for($i=$limit['from']; $i<=$limit['to']; $i++) 
+		{
+			$result[$i] = $this->_listProjects[$i];
+		}
 		return $result;
 	}
 
@@ -39,6 +43,7 @@ class Projects
 	{
 		$marks = array("-","_"); // Znaki które zostana zamienione na spacje, w nazwie
 		$i = 0; //Liczba projektów
+		$list = [];
 
 		foreach(glob('projects/*', GLOB_ONLYDIR) as $folder)
 		{

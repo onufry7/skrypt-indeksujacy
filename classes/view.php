@@ -2,29 +2,24 @@
 
 	class View
 	{
-		private $_master = '';
+		private $_master = 'master'; //Nazwa głównego szablonu
 
-		public function __construct($count)
+		public function __construct()
 		{
-			echo '<br>view konstruktor<br>';
-			$this->_master = $this->getTemplate('master');
-			$this->_master = str_replace('{{ COUNT-PROJECTS }}', $count, $this->_master);
+			//$this->_master = $this->getTemplate('master');
+			//$this->_master = str_replace('{{ COUNT-PROJECTS }}', $count, $this->_master);
 		}
 
 
-		public function getView($view, $content)
+		//Pobiera kod widoku
+		public function getView($view = null)
 		{
-			switch ($view) {
-				case 'list':
-					return $this->viewIndex($content);
-					break;
-				default:
-					$this->view404($content);
-					break;
-			}
+			if($view == null) $view = $this->_master;
+			$template = $this->getTemplate($view);
+			return $template;
 		}
 
-
+//---------------------------------------------------------------------------------------------------
 		//Widok głównej strony
 		public function viewIndex($content, $page)
 		{
@@ -73,8 +68,9 @@
 			return $err;
 		}
 
-
-		//Sprawdza czy plik widoku istnieje
+//---------------------------------------------------------------------------------------------------
+		//Sprawdza czy plik widoku istnieje 
+		//Zwraca kod widoku lub generuje błąd
 		private function getTemplate($file)
 		{
 			$file = 'templates/'.$file.'.html';
@@ -84,6 +80,7 @@
 		}
 
 
+		//Wyświetla stronę
 		public function renderView($view)
 		{
 			echo $view;

@@ -6,35 +6,29 @@
 		<meta name="ROBOTS" content="INDEX, FOLLOW, NOARCHIVE">
 		<link href="img/favicon.ico" rel="icon" type="image/x-icon">
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<title>Projekty - Szymon B.</title>
+		<title>{{ TITLE }}</title>
 	</head>
 
 	<body>
 		<div id="content">
 			
-			<div id="header" >Moje Projekty</div>
-			
-			{{ LISTA }}
+			<section>
+				<header>{{ HEADER }}</header>
+				<article>
+					{{ CONTENT }}
+				</article>
+			</section>
 
-			<div class="description">* Wybierz projekt klikając w jego nazwę.</div>
-
-			<div class="pagination">
-				{{ PAGINACJA }}
-			</div>
-
-			<div style="clear: both;"></div>
-			
-			<div class="bottom">
+			<aside>
 				<div class="minions"></div>
 				<div class="addons">
 					<p class="quote">Jak się czuję,<br />kiedy mój kod działa<br />&larr; ;-)</p>
 					<p class="projects">Liczba projektów: {{ COUNT-PROJECTS }}</p>
 				</div>
-				
 				<div style="clear: both;"></div>
+			</aside>
 
-				<p class="footer">Skrypt indeksujący. - Szymon Burnejko</p>
-			</div>
+			<footer>Skrypt indeksujący. - Szymon Burnejko &copy; 2016 - {{ YEAR }}</footer>
 
 		</div>
 	</body>
