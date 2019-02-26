@@ -126,13 +126,13 @@ class Paginate
 		{
 			if($i >= ($this->_currentPage-$page) && $i <= ($this->_currentPage+$page))
 			{
-				$class = ($i==$this->_currentPage) ? 'isAcitive' : 'nonActive';
-				$panel .= str_replace(['{{ PAGE }}','{{ CLASS }}'], [$i,$class], $content[1]);
+				$src = ($i==$this->_currentPage) ? $content[2] : $content[1];
+				$panel .= str_replace('{{ PAGE }}', $i, $src);
 			}
 		}
 
 		if($this->_currentPage <= $this->_pages-($page+1)) 
-			$panel .= str_replace('{{ PAGE }}', $this->_pages, $content[2]);
+			$panel .= str_replace('{{ PAGE }}', $this->_pages, $content[3]);
 
 		return $panel;
 	}

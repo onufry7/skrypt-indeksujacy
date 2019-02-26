@@ -44,7 +44,8 @@ th
 
 th:not(:first-child)
 {
-	width: 50%;
+	width: 80%;
+	text-align: center;
 }
 
 td 
@@ -55,7 +56,7 @@ td
 tr:hover:not(:first-child) 
 {
 	background-color: #020;
-	width: 50%;
+	width: 80%;
 }
 
 td a 
@@ -95,7 +96,9 @@ table span:first-letter
 .pagination 
 {
 	text-align: center; 
-	padding-top: 20px;
+	margin-top: 30px;
+	margin-bottom: 55px;
+
 }
 
 .pagination > span::before 
@@ -173,11 +176,22 @@ a:hover
 	text-shadow:0 0 8px #ff0;
 }
 
-a.selectActive 
+span.isActive
 {
 	font-size: 28px; 
 	color: #eefc3a; 
 	text-shadow:0 0 8px #ff0;
+	cursor: default;
+}
+
+a.nonActive 
+{
+	font-size: 20px;
+	min-width: 30px;
+	min-height: 30px;
+	padding: 0
+	margin: 0;
+	display: inline-block;
 }
 
 img 
