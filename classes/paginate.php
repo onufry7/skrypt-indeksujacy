@@ -23,7 +23,7 @@ class Paginate
 	}
 
 
-	public function getPaginPanel();
+	public function getPaginPanel()
 	{
 		return $this->_paginPanel;
 	}

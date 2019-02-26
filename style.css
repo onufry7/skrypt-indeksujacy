@@ -185,3 +185,16 @@ img
 	vertical-align: baseline; 
 	border-size: 0;
 }
+
+.error
+{
+	text-align: center; 
+	font-size: 24px; 
+	font-weight: bold;
+	margin: 35px auto;
+	padding: 15px 10px;
+	background-color: #862222;
+	border: 5px solid #530000;
+	border-radius: 25px;
+	width: 70%;
+}

@@ -16,25 +16,10 @@
 					$this->project($params);
 					break;
 				default:
-					$this->error($params);
+					new ErrorSite($params);
 					break;
 			}
 		}
-
-
-	// 	//Strona projektu
-	// 	private function project($param)
-	// 	{
-			
-	// 	}
-
-
-	// 	//Strona błędu
-	// 	private function error($param)
-	// 	{
-	// 		$err = new Errors($param);
-	// 		return $err;
-	// 	}
 	}
 
 ?>
