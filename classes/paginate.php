@@ -2,15 +2,15 @@
 
 class Paginate
 {
-	private $_paginPanel = ''; //Panel paginacji
-	private $_currentPage = 0; //Obecna strona
+	private $_currentPage = 1; //Obecna strona
 	private $_items = 0; //Liczba wszystkich rekordów
 	private $_next = false; //Następna strona
 	private $_previous = false; //Poprzednia strona
-	private $_perPage = 3; //Liczba rekordów na strone
+	private $_perPage = 7; //Liczba rekordów na strone
 	private $_pages = 1; //Liczba stron
 	private $_from = 0; //Od jakiego rekordu
 	private $_to = 0; //Do jakiego rekordu
+	private $_panel = ''; //Panel z paginacją
 
 
 	public function generatePagination($items, $page = null)
@@ -20,12 +20,19 @@ class Paginate
 		$this->setCurrentPage($page);
 		$this->setNextPrev();
 		$this->setFromTo();
+		$this->setPanel();
 	}
 
 
-	public function getPaginPanel()
+	public function getPanel()
 	{
-		return $this->_paginPanel;
+		return $this->_panel;
+	}
+
+	private function setPanel()
+	{
+		$panel = $this->createPanel();
+		$this->_panel = $panel;
 	}
 
 
@@ -41,6 +48,18 @@ class Paginate
 		return ['from'=>$this->_from, 'to'=>$this->_to];
 	}
 
+	//Ustawia przedział rekordów dla strony
+	private function setFromTo()
+	{
+		//Nr min rekordu na bierzącej stronie
+		if(($this->_currentPage-1)*$this->_perPage < 0) $this->_from = 0;
+		else $this->_from = ($this->_currentPage-1)*$this->_perPage;
+
+		//Nr max rekordu na bierzącej stronie
+		if($this->_from+$this->_perPage-1 > $this->_items-1) $this->_to = $this->_items-1;
+		else $this->_to = $this->_from+$this->_perPage-1;
+	}
+
 
 	//Ustawia liczbe wszystkich rekordów
 	private function setItems($elements)
@@ -49,23 +68,10 @@ class Paginate
 	}
 
 
-	//Ustawia przedział rekordów dla strony
-	private function setFromTo()
-	{
-		//Nr min rekordu na bierzącej stronie
-		if($this->_currentPage*$this->_perPage < 0) $this->_from = 0;
-		else $this->_from = $this->_currentPage*$this->_perPage;
-
-		//Nr max rekordu na bierzącej stronie
-		if($this->_from+$this->_perPage-1 > $this->_items-1) $this->_to = $this->_items-1;
-		else $this->_to = $this->_from+$this->_perPage-1;
-	}
-
-
 	//Ustawia liczbe wszystkich stron
 	private function setPages()
 	{
-		$this->_pages = ceil($this->_items/$this->_perPage)-1;
+		$this->_pages = ceil($this->_items/$this->_perPage);
 	}
 
 
@@ -73,11 +79,11 @@ class Paginate
 	private function setCurrentPage($page)
 	{
 		//Gdy nie podano strony lub poniżej min wartość
-		if(is_null($page) || $page-1 < 0) $this->_currentPage = 0; 
+		if(is_null($page) || $page < 1) $this->_currentPage = 1; 
 		//Gdy przekroczy max wartość
-		else if(($page-1) > $this->_pages) $this->_currentPage = $this->_pages; 
+		else if($page > $this->_pages) $this->_currentPage = $this->_pages; 
 		//W innych przypadkach
-		else $this->_currentPage = $page-1; 
+		else $this->_currentPage = $page;
 	}
 
 
@@ -105,10 +111,30 @@ class Paginate
 	}
 
 
+
 	//Tworzy panel z linkami
 	private function createPanel()
 	{
-		;
+		$view = new View;
+		$content = $view->getViewSrc('pagin-panel');
+		$panel = '';
+		$page = 5; //Zakres wyświetlanych stron po lewej i prawej od obecnej
+
+		if($this->_currentPage > ($page+1)) $panel .= $content[0];
+
+		for($i=1; $i<=$this->_pages; $i++)
+		{
+			if($i >= ($this->_currentPage-$page) && $i <= ($this->_currentPage+$page))
+			{
+				$class = ($i==$this->_currentPage) ? 'isAcitive' : 'nonActive';
+				$panel .= str_replace(['{{ PAGE }}','{{ CLASS }}'], [$i,$class], $content[1]);
+			}
+		}
+
+		if($this->_currentPage <= $this->_pages-($page+1)) 
+			$panel .= str_replace('{{ PAGE }}', $this->_pages, $content[2]);
+
+		return $panel;
 	}
 
 }

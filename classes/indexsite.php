@@ -4,17 +4,19 @@
 	 {
 	 	private $_title = 'Burnejko - lista projektów';
 	 	private $_header = 'Moje Projekty';
+	 	private $_pagin;
 
 	 	public function __construct($page)
 	 	{
 	 		parent::__construct($this->_header, $this->_title);
 
+	 		$this->_pagin = new Paginate();
 	 		$projectsList = $this->getProjectsList($page);
 
 			if(!empty($projectsList))
 			{
+				$pagination = $this->_pagin->getPanel();
 				$list = $this->createViewList($projectsList);
-				$pagination = '<< < 1 | 2 | 3 > >>';
 				$content = $this->createViewIndex($list, $pagination);
 			}  
 			else $content = $this->createViewEmpty();
@@ -30,9 +32,8 @@
 	 		$projects = new Projects;
 			$count = $projects->countProjects();
 			if(is_null($page)) $page = 1;
-			$pagin = new Paginate();
-			$pagin->generatePagination($count, $page);
-			$projectsList = $projects->getFromToProjects($pagin->getFromTo());
+			$this->_pagin->generatePagination($count, $page);
+			$projectsList = $projects->getFromToProjects($this->_pagin->getFromTo());
 			return $projectsList;
 	 	}
 
