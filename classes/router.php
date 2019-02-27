@@ -41,9 +41,10 @@
 			if(count(explode('/', $uri))==1)
 			{
 				if(preg_match('/^[0-9]+$/', $uri)) return array('index', $uri);
-				if(preg_match('/^[a-zA-Z0-9-_]+$/', $uri)) return array('project', $uri);
-			}	
-			return array('error', 404);
+				if(preg_match('/^blad404$/', $uri)) return array('error', 404);
+				if(preg_match('/^blad$/', $uri)) return array('error', $uri);
+			}
+			return header('Location: http://'.$this->_host.'/blad404');	
 		}
 
 	}

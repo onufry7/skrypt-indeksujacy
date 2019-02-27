@@ -12,9 +12,6 @@
 				case 'index':
 					new IndexSite($params);
 					break;
-				case 'project':
-					$this->project($params);
-					break;
 				default:
 					new ErrorSite($params);
 					break;

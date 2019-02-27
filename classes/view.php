@@ -4,13 +4,6 @@
 	{
 		private $_master = 'master'; //Nazwa głównego szablonu
 
-		public function __construct()
-		{
-			//$this->_master = $this->getTemplate('master');
-			//$this->_master = str_replace('{{ COUNT-PROJECTS }}', $count, $this->_master);
-		}
-
-
 		//Pobiera kod widoku
 		public function getView($view = null)
 		{

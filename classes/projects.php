@@ -45,7 +45,7 @@ class Projects
 		$i = 0; //Liczba projektów
 		$list = [];
 
-		foreach(glob('projects/*', GLOB_ONLYDIR) as $folder)
+		foreach(glob('projekty/*', GLOB_ONLYDIR) as $folder)
 		{
 			//Ustawienie opisu
 			if(!file_exists("$folder".'/info.txt') || filesize("$folder".'/info.txt') <= 0) $list[$i]['info'] = '';
@@ -55,7 +55,7 @@ class Projects
 			$list[$i]['name'] = substr(str_replace($marks," ",$folder), 9);
 
 			//Ustawienie linku
-			$list[$i]['link'] = substr($folder, 9);
+			$list[$i]['link'] = $folder;
 			
 			$i++;
 
