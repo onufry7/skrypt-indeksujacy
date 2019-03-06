@@ -41,7 +41,7 @@ class Projects
 	//Tworzy listę wszystkich projektów
 	private function projectsList()
 	{
-		$marks = array(" "," "); // Znaki które zostana zamienione na spacje, w nazwie
+		$marks = array("-","_"); // Znaki które zostana zamienione na spacje, w nazwie
 		$i = 0; //Liczba projektów
 		$list = [];
 

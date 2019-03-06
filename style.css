@@ -51,6 +51,7 @@ th:not(:first-child)
 td 
 {
 	padding: 2px 15px 2px 8px;
+	font-size: 18px;
 }
 
 tr:hover:not(:first-child) 
@@ -63,6 +64,7 @@ td a
 {
 	display: inline-block; 
 	width: 280px;
+	font-size: 20px;
 }
 
 table span 
@@ -211,4 +213,10 @@ img
 	border: 5px solid #530000;
 	border-radius: 25px;
 	width: 70%;
+}
+
+footer a
+{
+	text-decoration: none;
+	color: #f0f0f0;
 }

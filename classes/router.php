@@ -2,7 +2,7 @@
 
 	class Router
 	{
-		private $_host = 'projektownik.loc'; //adres strony
+		private $_host = 'portfolio.loc'; //adres strony
 
 
 		public function __construct()
