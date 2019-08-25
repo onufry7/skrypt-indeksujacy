@@ -2,7 +2,7 @@
 
 	 class IndexSite extends Site
 	 {
-	 	private $_title = 'Burnejko - lista projektów';
+	 	private $_title = 'Burnejko - Portfolio';
 	 	private $_header = 'Moje Projekty';
 	 	private $_pagin;
 

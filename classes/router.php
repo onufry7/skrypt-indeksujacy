@@ -44,7 +44,7 @@
 				if(preg_match('/^blad404$/', $uri)) return array('error', 404);
 				if(preg_match('/^blad$/', $uri)) return array('error', $uri);
 			}
-			return header('Location: http://'.$this->_host.'/blad404');	
+			return header('Location: https://'.$this->_host.'/blad404');	
 		}
 
 	}
