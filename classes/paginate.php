@@ -6,7 +6,7 @@ class Paginate
 	private $_items = 0; //Liczba wszystkich rekordów
 	private $_next = false; //Następna strona
 	private $_previous = false; //Poprzednia strona
-	private $_perPage = 4; //Liczba rekordów na strone
+	private $_perPage = 10; //Liczba rekordów na strone
 	private $_pages = 1; //Liczba stron
 	private $_from = 0; //Od jakiego rekordu
 	private $_to = 0; //Do jakiego rekordu
